@@ -15,10 +15,12 @@ Basically, this program uses convex optimization solving algorithms to obtain th
 Consider having a convex optimization problem consisting of several equations in condition form:
 
 $$Ax \leq b$$
+
 $$x \geq 0$$
+
 $$F(x) \rightarrow min$$
 
-where $$F(x)$$ usually is equal to $$(-\sum_ix_i)$$.
+where $F(x)$ usually is equal to $(-\sum_ix_i)$.
 
 There are a few algorithms to go with, e.g.:
 + LSM-based algorithm with barriers
@@ -28,7 +30,7 @@ There are a few algorithms to go with, e.g.:
 
 ## Program overview
 
-This program is written on *C++* with *Qt 5.15 Framework* (consists of Linux default repository packages of APT such as libqt5*). Program is considered open-source software with non-commercial use.
+This program is written on *C++* with *Qt 5.15 Framework* (consists of Linux default repository packages of APT such as `libqt5*`). Program is considered open-source software with non-commercial use.
 
 ![MainMenu](github_files/main_menu.jpg)
 
@@ -39,11 +41,11 @@ Program uses database connection to obtain values. Implemented DBMS supports are
 + ODBC-compliant databases (for example, MS SQL)
 
 Database should have three stored procedures implemented:
-+ `GenerateEntries()` - creates or rewrites temporary table `Entries` with values of matrix $$A$$;
-+ `GenerateRestrictions()` - creates or rewrites temporary table `Restrictions` with values of vector $$b$$;
-+ `GenerateCostFunction()` - creates or rewrites temporary table `CostFunction` with coefficients of cost function $$F(x)$$.
++ `GenerateEntries()` - creates or rewrites temporary table `Entries` with values of matrix $A$;
++ `GenerateRestrictions()` - creates or rewrites temporary table `Restrictions` with values of vector $b$;
++ `GenerateCostFunction()` - creates or rewrites temporary table `CostFunction` with coefficients of cost function $F(x)$.
 
-Generated tables respresent matrices. This should be normal because usually matrices in all used methods are sparse, so tables store list of index-value tuples. Obvious enough, not existing values are zeros by default. Tables shouls look like presented below.
+Generated tables represent matrices. This should be normal because usually matrices in all used methods are sparse, so tables store list of index-value tuples. Obvious enough, not existing values are zeros by default. Tables should look like as presented below.
 
 ### Entries table
 |RowIndex|ColumnIndex|Coefficient|
