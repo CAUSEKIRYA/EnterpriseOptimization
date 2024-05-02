@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HelpWindow</class>
+ <widget class="QMainWindow" name="HelpWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Help</string>
+  </property>
+  <property name="locale">
+   <locale language="English" country="Kenya"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>765</width>
+         <height>1181</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="helpText">
+          <property name="text">
+           <string notr="true"># Welcome To Help Page!
+
+This is a quick guide on **Enterprise Optimization** program.
+
+## Get Started
+
+Firstly, let's look at the interface. There are:
+
++ Big view window of database values (center);
++ Buttons for database connection (left bottom);
++ Optimization parameters (right bottom);
++ Settings and about sections (menu).
+
+You can choose between different optimization methods, here is the quick recap:
+
++ LSM method is quick, but quite inaccurate. Choose it only if you want a brief guess for your parameters.
++ Simplex method is a standart convex optimization problem solver. It is usually used on a low variables count due to memory consumption.
++ Interior point method is great for systems with a lot of values. It is inefficient on low variables count, but very good at high variables count.
+
+Also there is an option to make your results integer:
+
++ *Truncate* is fast method to drop any fractional values. Not recommended on smaller systems.
++ *Branch and Bound* method is an iterative method of exponential difficulty, which can be used to find exact solution. Use with caution: it is very slow on large amount of variables.
+
+Overall goal: solve a problem, which can be specified as follows:
+
+```
+Ax &lt;= b
+x &gt;= 0
+F(x) -&gt; min
+```
+
+## Setting up database
+
+You can choose one of the DBMSs presented down below:
+
++ MySQL
++ PostgreSQL
++ SQLite
++ ODBC-compliant DB (such as MS SQL)
+
+Your database should have three procedures, which generate temporary tables:
+
++ **GenerateEntries()** -&gt; TABLE Entries
++ **GenerateRestrictions()** -&gt; TABLE Restrictions
++ **GenerateCostFunction()** -&gt; TABLE CostFunction
+
+*Entries* table consists of coefficient list of linear restrictions equations (basically, it is matrix `A`).
+
+|RowIndex|ColumnIndex|Coefficient|
+|---|---|---|
+|1|1|4|
+|1|3|0|
+|...|...|...|
+
+etc.
+
+*Restrictions* table consists of coefficient list of maximum possible values of restrictions (matrix `b`).
+
+|RowIndex|Coefficient|
+|---|---|
+|1|4|
+|2|11|
+|...|...|
+
+etc.
+
+*CostFunction* table consist coefficients of cost function (function `F(x)`).
+
+|ColumnIndex|Coefficient|
+|---|---|
+|1|-1|
+|2|0|
+|...|...|
+
+etc.
+
+## Results
+The results obtained are the solution of a optimization problem presented above. Results are a vector `x`, which satisfy conditions, as well as presenting optimal production plan.</string>
+          </property>
+          <property name="textFormat">
+           <enum>Qt::MarkdownText</enum>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
