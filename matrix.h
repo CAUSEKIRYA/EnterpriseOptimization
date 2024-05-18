@@ -32,8 +32,11 @@ public:
     Matrix operator-(Matrix other);
     Matrix operator*(Matrix other);
 
+    bool operator==(Matrix& other);
     bool operator>(Matrix &other);
+    bool operator>=(Matrix &other);
     bool operator<(Matrix &other);
+    bool operator<=(Matrix &other);
 
 #ifdef Q_DECL_NOEXCEPT
     bool hasError() const;

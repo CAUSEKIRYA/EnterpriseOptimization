@@ -16,7 +16,8 @@ void Truncate::run()
     for (int i = 0; i < r; i++)
     {
         setProgress(i / f);
-        result->setAt(i, 0, static_cast<int>(input->getAt(i, 0)));
+        int e = static_cast<int>(solution->getAt(i, 0));
+        result->setAt(i, 0, e);
     }
 
     setProgress(1.0);

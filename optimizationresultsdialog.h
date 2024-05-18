@@ -25,6 +25,7 @@ public slots:
 public:
     explicit OptimizationResultsDialog(DBViewWidget *db, QWidget *parent = nullptr);
     ~OptimizationResultsDialog();
+    void keyPressEvent(QKeyEvent* e) override;
 
 private:
     DBViewWidget* dbViewWidget;

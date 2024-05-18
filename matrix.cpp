@@ -127,6 +127,31 @@ Matrix Matrix::operator*(Matrix other)
     return result;
 }
 
+bool Matrix::operator==(Matrix &other)
+{
+    if (rows != other.rows || columns != other.columns)
+    {
+#ifndef Q_DECL_NOEXCEPT
+        throw QException();
+#else
+        return false;
+#endif
+    }
+
+    for (uint i = 0; i < rows; i++)
+    {
+        for (uint j = 0; j < columns; j++)
+        {
+            if (getAt(i, j) != other.getAt(i, j))
+            {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
 bool Matrix::operator<(Matrix &other)
 {
     if (rows != other.rows || columns != other.columns)
@@ -168,6 +193,56 @@ bool Matrix::operator>(Matrix &other)
         for (uint j = 0; j < columns; j++)
         {
             if (getAt(i, j) <= other.getAt(i, j))
+            {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+bool Matrix::operator<=(Matrix &other)
+{
+    if (rows != other.rows || columns != other.columns)
+    {
+#ifndef Q_DECL_NOEXCEPT
+        throw QException();
+#else
+        return false;
+#endif
+    }
+
+    for (uint i = 0; i < rows; i++)
+    {
+        for (uint j = 0; j < columns; j++)
+        {
+            if (getAt(i, j) > other.getAt(i, j))
+            {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+bool Matrix::operator>=(Matrix &other)
+{
+    if (rows != other.rows || columns != other.columns)
+    {
+#ifndef Q_DECL_NOEXCEPT
+        throw QException();
+#else
+        return false;
+#endif
+    }
+
+    for (uint i = 0; i < rows; i++)
+    {
+        for (uint j = 0; j < columns; j++)
+        {
+            if (getAt(i, j) < other.getAt(i, j))
             {
                 return false;
             }
@@ -291,14 +366,16 @@ Matrix Matrix::diagonal(uint size, double value)
 
 QString Matrix::toString()
 {
-    QString str = "";
+    QString str = "[";
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < columns; j++)
         {
             str += QString::number(data[i][j]) + " ";
         }
-        str += "\n";
+
+        if (i != rows - 1) str += ";...\n";
+        else str += "]";
     }
     return str;
 }

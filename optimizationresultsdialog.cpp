@@ -10,6 +10,7 @@
 #include "matrixview.h"
 
 #include <QMessageBox>
+#include <QKeyEvent>
 
 OptimizationResultsDialog::OptimizationResultsDialog(DBViewWidget *db, QWidget *parent) :
     QDialog(parent),
@@ -32,6 +33,12 @@ OptimizationResultsDialog::~OptimizationResultsDialog()
     delete output;
     delete function;
     delete ui;
+}
+
+void OptimizationResultsDialog::keyPressEvent(QKeyEvent *e)
+{
+    if (e->key() == Qt::Key_Escape) return;
+    else QDialog::keyPressEvent(e);
 }
 
 void OptimizationResultsDialog::finishCalculation()

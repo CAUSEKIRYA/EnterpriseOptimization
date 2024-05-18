@@ -4,6 +4,9 @@
 #include <QBitArray>
 #include <QtMath>
 
+#define DEBUG_MODE 1
+#include "program_defs.h"
+
 void BranchAndBound::run()
 {
     delete result;
@@ -17,7 +20,7 @@ void BranchAndBound::run()
     QBitArray full(r, true);
 
     double f = qPow(2, r), k = 0;
-    double minF;
+    double minF = 1e300;
 
     result = new Matrix(r, 1);
     while (true)
@@ -30,7 +33,7 @@ void BranchAndBound::run()
         }
 
         double curF = (*function * temp).getAt(0, 0);
-        if (curF < minF && *input * temp < *output)
+        if (curF < minF && *input * temp <= *output)
         {
             minF = curF;
             delete result;

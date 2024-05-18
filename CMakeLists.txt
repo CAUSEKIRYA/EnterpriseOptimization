@@ -36,6 +36,8 @@ set(PROJECT_SOURCES
         settingsdialog.h settingsdialog.cpp settingsdialog.ui
         dbconnectiondialog.h dbconnectiondialog.cpp dbconnectiondialog.ui
         optimizationresultsdialog.h optimizationresultsdialog.cpp optimizationresultsdialog.ui
+        aboutprogramdialog.h aboutprogramdialog.cpp aboutprogramdialog.ui
+        helpwindow.h helpwindow.cpp helpwindow.ui
 
         ${TS_FILES}
 )

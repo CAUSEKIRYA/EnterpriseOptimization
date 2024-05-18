@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "appsettings.h"
+#include "aboutprogramdialog.h"
+#include "helpwindow.h"
 #include "dbviewwidget.h"
 #include "settingsdialog.h"
 #include "optimizationresultsdialog.h"
@@ -17,6 +19,8 @@
 MainWindow::MainWindow()
     : QMainWindow(nullptr)
     , ui(new Ui::MainWindow)
+    , aboutDialog(new AboutProgramDialog(this))
+    , helpWindow(new HelpWindow(this))
 {
     QStringList optMethods, integerMethods;
 
@@ -49,6 +53,8 @@ MainWindow::MainWindow()
 
     sw = new SettingsDialog(this);
     connect(ui->actionSettings, SIGNAL(triggered()), sw, SLOT(show()));
+    connect(ui->actionProgramInfo, SIGNAL(triggered()), aboutDialog, SLOT(show()));
+    connect(ui->actionHelp, SIGNAL(triggered()), helpWindow, SLOT(show()));
 
     optRes = new OptimizationResultsDialog(dbView, this);
     connect(ui->optimizeButton, SIGNAL(clicked()), this, SLOT(onOptimizeClicked()));

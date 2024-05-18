@@ -227,14 +227,14 @@
     <property name="title">
      <string>About</string>
     </property>
-    <addaction name="actionProgram_Info"/>
+    <addaction name="actionProgramInfo"/>
     <addaction name="actionHelp"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionProgram_Info">
+  <action name="actionProgramInfo">
    <property name="text">
     <string>Program Info</string>
    </property>

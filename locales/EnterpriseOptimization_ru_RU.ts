@@ -2,6 +2,23 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru_RU" sourcelanguage="en_US">
 <context>
+    <name>AboutProgramDialog</name>
+    <message>
+        <source>About</source>
+        <translation>О программе</translation>
+    </message>
+    <message>
+        <source>This program is used to optimize production in certain enterprise.
+It uses external database to collect data from. Format of a database is specified in &quot;Help&quot; menu. Program provides various optimization methods, some of them are considered &quot;integer optimization&quot; in addition.</source>
+        <translation>Эта программа используется для оптимизации производства некоторого предприятия.
+Она использует внешнюю базу данных, в которой хранится необходимая информация. Формат базы данных указан в меню &quot;Справка&quot;. Программа предоставляет несколько методов оптимизации, в дополнение к которым реализованы методы &quot;целочисленной оптимизации&quot;.</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Version&lt;/span&gt;: 1.0.0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Версия&lt;/span&gt;: 1.0.0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+</context>
+<context>
     <name>DBConnectionDialog</name>
     <message>
         <source>Connection to DB</source>
@@ -50,6 +67,13 @@
     <message>
         <source>Connect</source>
         <translation>Соединиться</translation>
+    </message>
+</context>
+<context>
+    <name>HelpWindow</name>
+    <message>
+        <source>Help</source>
+        <translation>Справка</translation>
     </message>
 </context>
 <context>

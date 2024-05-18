@@ -11,6 +11,8 @@ class DBViewWidget;
 class SettingsDialog;
 class QVBoxLayout;
 class OptimizationResultsDialog;
+class AboutProgramDialog;
+class HelpWindow;
 
 class MainWindow : public QMainWindow
 {
@@ -33,6 +35,8 @@ public slots:
     void enableButtons(bool enable);
 
 private:
+    AboutProgramDialog* aboutDialog;
+    HelpWindow* helpWindow;
     SettingsDialog* sw;
     OptimizationResultsDialog* optRes;
     QVBoxLayout* viewWidgetLayout;

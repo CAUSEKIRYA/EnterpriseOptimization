@@ -72,7 +72,7 @@ void DBViewWidget::refreshDb()
         QTableView* tableView = new QTableView(tabWidget);
         QSqlTableModel* model = new QSqlTableModel(tabWidget);
         model->setTable(tableName);
-        model->setEditStrategy(QSqlTableModel::OnManualSubmit);
+        model->setEditStrategy(QSqlTableModel::OnFieldChange);
         model->select();
 
         tableView->setModel(model);
